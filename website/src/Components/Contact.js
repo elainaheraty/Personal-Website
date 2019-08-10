@@ -4,14 +4,34 @@ import axios from "axios";
 class Contact extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.submitContactForm = this.submitContactForm.bind(this);
     this.state = {
       name: "",
       subject: "",
       email: "",
-      message: ""
+      message: "",
+      tweets: []
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.submitContactForm = this.submitContactForm.bind(this);
+    this.fetchTweets = this.fetchTweets.bind(this);
+    this.fetchTweets();
+  }
+
+  async fetchTweets() {
+    const response = await axios.get("/api/tweets");
+    const savedTweets = [];
+    const tweets = response.data.tweets.data;
+    tweets.map(tweet => {
+      savedTweets.push({
+        text: tweet.text,
+        date: tweet.created_at,
+        link:
+          tweet.entities.urls.length > 0
+            ? tweet.entities.urls[0].expanded_url
+            : "#"
+      });
+    });
+    this.setState({ tweets: savedTweets });
   }
 
   handleChange(e) {
@@ -33,7 +53,7 @@ class Contact extends Component {
 
   async submitContactForm() {
     const { name, email, subject, message } = this.state;
-    const response = await axios.post("/sendmessage", {
+    const response = await axios.post("/api/sendmessage", {
       name,
       email,
       subject,
@@ -43,7 +63,6 @@ class Contact extends Component {
   }
 
   render() {
-    console.log(this.state);
     if (this.props.data) {
       var name = this.props.data.name;
       var street = this.props.data.address.street;
@@ -163,36 +182,68 @@ class Contact extends Component {
 
             <div className="widget widget_tweets">
               <h4 className="widget-title">Latest Tweets</h4>
-              <ul id="twitter">
-                <li>
-                  <span>
-                    This is Photoshop's version of Lorem Ipsum. Proin gravida
-                    nibh vel velit auctor aliquet. Aenean sollicitudin, lorem
-                    quis bibendum auctor, nisi elit consequat ipsum
-                    <a href="#">http://t.co/CGIrdxIlI3</a>
-                  </span>
-                  <b>
-                    <a href="#">2 Days Ago</a>
-                  </b>
-                </li>
-                <li>
-                  <span>
-                    Sed ut perspiciatis unde omnis iste natus error sit
-                    voluptatem accusantium doloremque laudantium, totam rem
-                    aperiam, eaque ipsa quae ab illo inventore veritatis et
-                    quasi
-                    <a href="#">http://t.co/CGIrdxIlI3</a>
-                  </span>
-                  <b>
-                    <a href="#">3 Days Ago</a>
-                  </b>
-                </li>
-              </ul>
+              <ul id="twitter">{this.state ? this.renderTweets() : <div />}</ul>
             </div>
           </aside>
         </div>
       </section>
     );
+  }
+
+  renderTweets() {
+    var items = [];
+    this.state.tweets.map(tweet => {
+      items.push(
+        <li key={tweet.date}>
+          <span>{tweet.text}</span>
+          <b>
+            <a href={tweet.link}>{this.parseTwitterDate(tweet.date)}</a>
+          </b>
+        </li>
+      );
+    });
+
+    return items;
+  }
+
+  parseTwitterDate(tdate) {
+    var systemDate = new Date(Date.parse(tdate));
+    var userDate = new Date();
+    var diff = Math.floor((userDate - systemDate) / 1000);
+    if (diff <= 1) {
+      return "just now";
+    }
+    if (diff < 20) {
+      return diff + " seconds ago";
+    }
+    if (diff < 40) {
+      return "half a minute ago";
+    }
+    if (diff < 60) {
+      return "less than a minute ago";
+    }
+    if (diff <= 90) {
+      return "one minute ago";
+    }
+    if (diff <= 3540) {
+      return Math.round(diff / 60) + " minutes ago";
+    }
+    if (diff <= 5400) {
+      return "1 hour ago";
+    }
+    if (diff <= 86400) {
+      return Math.round(diff / 3600) + " hours ago";
+    }
+    if (diff <= 129600) {
+      return "1 day ago";
+    }
+    if (diff < 604800) {
+      return Math.round(diff / 86400) + " days ago";
+    }
+    if (diff <= 777600) {
+      return "1 week ago";
+    }
+    return "on " + systemDate;
   }
 }
 

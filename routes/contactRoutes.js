@@ -1,8 +1,16 @@
 const keys = require("../config/keys");
 const nodemailer = require("nodemailer");
+const Twit = require("twit");
+
+var T = Twit({
+  consumer_key: keys.twitterConsumerKey,
+  consumer_secret: keys.twitterConsumerSecret,
+  access_token: keys.twitterAccessToken,
+  access_token_secret: keys.twitterAccessTokenSecret
+});
 
 module.exports = app => {
-  app.post("/sendmessage", (req, res) => {
+  app.post("/api/sendmessage", (req, res) => {
     if (req.body.name && req.body.email && req.body.message) {
       const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
@@ -47,5 +55,16 @@ module.exports = app => {
         message: "missing parameters"
       });
     }
+  });
+
+  app.get("/api/tweets", async (req, res) => {
+    var tweets = await T.get("statuses/user_timeline", {
+      screen_name: "ashwathbkrishna",
+      count: 3
+    });
+
+    res.status(200).json({
+      tweets
+    });
   });
 };
