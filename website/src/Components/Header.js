@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
   render() {
@@ -8,10 +9,11 @@ class Header extends Component {
       var description = this.props.data.description;
       var state = this.props.data.address.state;
       var networks = this.props.data.social.map(function(network) {
+        console.log(network);
         return (
           <li key={network.name}>
             <a href={network.url}>
-              <i className={network.className} />
+              <FontAwesomeIcon icon={network.className} />
             </a>
           </li>
         );
@@ -42,11 +44,6 @@ class Header extends Component {
             <li>
               <a className="smoothscroll" href="#resume">
                 Resume
-              </a>
-            </li>
-            <li>
-              <a className="smoothscroll" href="#portfolio">
-                Works
               </a>
             </li>
             <li>

@@ -20,27 +20,37 @@
       {
         "name": "twitter",
         "url": "http://twitter.com/ashwathbkrishna",
-        "className": "fa fa-twitter"
+        "className": ["fab", "twitter"]
       },
       {
         "name": "linkedin",
         "url": "https://www.linkedin.com/in/ashwath-krishnan-76930916a/",
-        "className": "fa fa-linkedin"
+        "className": ["fab", "linkedin-in"]
       },
       {
         "name": "instagram",
         "url": "https://www.instagram.com/ashwathkrishnan/",
-        "className": "fa fa-instagram"
+        "className": ["fab", "instagram"]
       },
       {
         "name": "github",
         "url": "http://github.com/SphinxNumberNine",
-        "className": "fa fa-github"
+        "className": ["fab", "github"]
+      },
+      {
+        "name": "steam",
+        "url": "https://steamcommunity.com/profiles/76561198105366254/",
+        "className": ["fab", "steam-symbol"]
+      },
+      {
+        "name": "spotify",
+        "url": "https://open.spotify.com/user/ashwathbkrishnan?si=HvT7jlyuTVCPLlc59Mqe4A",
+        "className": ["fab", "spotify"]
       }
     ]
   },
   "resume": {
-    "skillmessage": "Here you can create a short write-up of your skills to show off to employers",
+    "skillmessage": "I've been programming for about four years. Below are a list of my skills and proficiencies with various technologies.",
     "education": [
       {
         "school": "University of Maryland",

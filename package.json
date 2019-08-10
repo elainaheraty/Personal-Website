@@ -1,0 +1,30 @@
+{
+  "name": "personal-website",
+  "version": "1.0.0",
+  "description": "server for my personal website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js",
+    "client": "npm run start --prefix website",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SphinxNumberNine/Personal-Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SphinxNumberNine/Personal-Website/issues"
+  },
+  "homepage": "https://github.com/SphinxNumberNine/Personal-Website#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.3.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1",
+    "nodemon": "^1.19.1"
+  }
+}
