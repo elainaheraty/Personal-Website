@@ -50,11 +50,6 @@ class Header extends Component {
               </a>
             </li>
             <li>
-              <a className="smoothscroll" href="#testimonials">
-                Testimonials
-              </a>
-            </li>
-            <li>
               <a className="smoothscroll" href="#contact">
                 Contact
               </a>
@@ -66,7 +61,10 @@ class Header extends Component {
           <div className="banner-text">
             <h1 className="responsive-headline">I'm {name}.</h1>
             <h3>
-              I'm a {state} based <span>{occupation}</span>. {description}.
+              <span style={{ color: "#020844" }}>
+                I'm a {state} based {occupation}. {description}
+              </span>
+              .
             </h3>
             <hr />
             <ul className="social">{networks}</ul>

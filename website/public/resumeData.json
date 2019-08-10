@@ -4,7 +4,7 @@
     "occupation": "computer science student",
     "description": "Currently a sophomore at the University of Maryland, College Park, pursuing a bachelors degree in computer science, specializing in data science, as well as a minor in statistics.",
     "image": "profilepic.jpg",
-    "bio": "I am a 19 year old CS student who loves hip-music, anime, video games, tennis, and PC hardware.",
+    "bio": "I am a 19 year old CS student who loves hip-music, anime, video games, tennis, PC hardware, and playing the piano.",
     "contactmessage": "If you want to get in touch with me, feel free to hit me up on any one of my social media accounts, or send me a message right here!",
     "email": "ashwath@krishnan.io",
     "phone": "7328536160",
@@ -15,13 +15,8 @@
       "zip": "08852"
     },
     "website": "http://krishnan.io",
-    "resumedownload": "http://krishnan.io",
+    "resumedownload": "./Resume.pdf",
     "social": [
-      {
-        "name": "facebook",
-        "url": "http://facebook.com/tim.baker.906",
-        "className": "fa fa-facebook"
-      },
       {
         "name": "twitter",
         "url": "http://twitter.com/ashwathbkrishna",
@@ -29,23 +24,18 @@
       },
       {
         "name": "linkedin",
-        "url": "https://www.linkedin.com/in/tim-baker-8420009a/",
+        "url": "https://www.linkedin.com/in/ashwath-krishnan-76930916a/",
         "className": "fa fa-linkedin"
       },
       {
         "name": "instagram",
-        "url": "http://instagram.com/tbaker_x",
+        "url": "https://www.instagram.com/ashwathkrishnan/",
         "className": "fa fa-instagram"
       },
       {
         "name": "github",
-        "url": "http://github.com/tbakerx",
+        "url": "http://github.com/SphinxNumberNine",
         "className": "fa fa-github"
-      },
-      {
-        "name": "skype",
-        "url": "http://skype.com",
-        "className": "fa fa-skype"
       }
     ]
   },
@@ -53,56 +43,56 @@
     "skillmessage": "Here you can create a short write-up of your skills to show off to employers",
     "education": [
       {
-        "school": "University?",
-        "degree": "Masters in Beer tasting",
-        "graduated": "April 2007",
-        "description": "Describe your experience at school, what you learned, what useful skills you have acquired etc."
+        "school": "University of Maryland",
+        "degree": "BS in Computer Science",
+        "graduated": "May 2022 (Expected)",
+        "description": "Dove deeper into my love for computer science while simultaneously exploring other disciplines of interest, like mathematics, statistics, and business analytics."
       },
       {
-        "school": "School #1 Maybe College?",
-        "degree": "What did you study 101",
-        "graduated": "March 2003",
-        "description": "Describe your experience at school, what you learned, what useful skills you have acquired etc."
+        "school": "South Brunswick High School",
+        "degree": "High School Diploma",
+        "graduated": "June 2018",
+        "description": "Gained a well rounded academic foundation, the fundamentals of computer science, and some life-long friends."
       }
     ],
     "work": [
       {
-        "company": "Awesome Design Studio",
-        "title": "Senior UX God ",
-        "years": "March 2010 - Present",
-        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+        "company": "Commvault Systems",
+        "title": "Software Engineering Intern",
+        "years": "Summer 2016-17, Summer 2019",
+        "description": "Created a windows application using C# in order to grab archived mail data from an Appache Solr index and allow the user to modify the data without using the Solr Admin UI. Aditionally created a Google Chrome extension using ReactJS and vanilla JavaScript to help the developers easily manage their code reviews."
       },
       {
-        "company": "Super Cool Studio",
-        "title": "Junior bug fixer",
-        "years": "March 2007 - February 2010",
-        "description": "Describe work, special projects, notable achievements, what technologies you have been working with, and anything else that would be useful for an employer to know."
+        "company": "Vydia",
+        "title": "Software Engineering Intern",
+        "years": "Summer 2018",
+        "description": "Managed strict typing for a high-level JavaScript codebase, using Facebook's Flow framework. Also used Docker and shell scripting to convert the company's development environment from a virtualization setup (Vagrant / Virtualbox) to a containerization setup, in order to increase efficiency."
       }
     ],
     "skills": [
       {
-        "name": "Git",
-        "level": "60%"
-      },
-      {
-        "name": "Illustrator",
-        "level": "55%"
-      },
-      {
-        "name": "ReactJs",
-        "level": "50%"
-      },
-      {
-        "name": "CSS",
-        "level": "90%"
-      },
-      {
-        "name": "HTML5",
+        "name": "Java",
         "level": "80%"
       },
       {
-        "name": "VueJs",
-        "level": "50%"
+        "name": "JavaScript",
+        "level": "60%"
+      },
+      {
+        "name": "ReactJs",
+        "level": "70%"
+      },
+      {
+        "name": "C#",
+        "level": "80%"
+      },
+      {
+        "name": "Python",
+        "level": "60%"
+      },
+      {
+        "name": "C",
+        "level": "70%"
       },
       {
         "name": "MongoDB",
@@ -113,34 +103,28 @@
   "portfolio": {
     "projects": [
       {
-        "title": "Canadian Wanderlust",
-        "category": "My Travel Blog for my post-university travels",
-        "image": "canadian-wanderlust.jpg",
-        "url": "https://www.canadianwanderlust.com"
+        "title": "Partify",
+        "category": "Cross platform mobile application for multiple users to add to a Spotify queue",
+        "image": "partify.jpg",
+        "url": "http://github.com/SphinxNumberNine/Partify"
       },
       {
-        "title": "Fury Fighting Gear",
-        "category": "(offline now) A fighting gear company I started",
+        "title": "Battle Royale Game",
+        "category": "3rd Person Battle Royale game designed for a game design course",
         "image": "fury-fighting-gear.jpg",
-        "url": "http://www.timbakerdev.com"
+        "url": ""
       },
       {
-        "title": "Original Thai Food",
-        "category": "Website I built for a restaurant I like in Thailand",
+        "title": "ATP Stat Grapher",
+        "category": "Python tool to graph ATP tennis statistics and show trends",
         "image": "original-thai-food.jpg",
-        "url": "http://www.timbakerdev.com/originalthaifood.github.io"
+        "url": "http://github.com/SphinxNumberNine/ATPStatGraphingTool"
       },
       {
-        "title": "Resume Website",
-        "category": "A React based resume website template",
+        "title": "Command Genie",
+        "category": "Windows Daemon application that scans email for incoming commands and runs them through command line.",
         "image": "resume-website.jpg",
-        "url": "http://www.timbakerdev.com"
-      },
-      {
-        "title": "Smirkspace",
-        "category": "(MVP Only) A React and Meteor based chat University project.",
-        "image": "smirkspace.jpg",
-        "url": "http://www.smirkspace.com"
+        "url": "http://github.com/SphinxNumberNine/CommandGenie"
       }
     ]
   },
