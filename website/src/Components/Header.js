@@ -57,7 +57,7 @@ class Header extends Component {
           <div className="banner-text">
             <h1 className="responsive-headline">I'm {name}.</h1>
             <h3>
-              <span style={{ color: "#020844" }}>
+              <span style={{ color: "#FFFFFF" }}>
                 I'm a {state} based {occupation}. {description}
               </span>
               .
