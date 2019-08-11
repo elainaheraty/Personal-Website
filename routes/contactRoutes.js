@@ -1,5 +1,7 @@
 const keys = require("../config/keys");
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 const Twit = require("twit");
 
 var T = Twit({
@@ -9,20 +11,30 @@ var T = Twit({
   access_token_secret: keys.twitterAccessTokenSecret
 });
 
+const oauth2Client = new OAuth2(
+  keys.googleClientId, // ClientID
+  keys.googleClientSecret, // Client Secret
+  "https://developers.google.com/oauthplayground" // Redirect URL
+);
+
+oauth2Client.setCredentials({
+  refresh_token: keys.googleRefreshToken
+});
+
 module.exports = app => {
   app.post("/api/sendmessage", (req, res) => {
     if (req.body.name && req.body.email && req.body.message) {
+      const accessToken = oauth2Client.getAccessToken();
       const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         service: "gmail",
-        port: 645,
-        secure: false,
         auth: {
+          type: "OAuth2",
           user: keys.myEmail,
-          pass: keys.myPassword
-        },
-        tls: {
-          rejectUnauthorized: false
+          clientId: keys.googleClientId,
+          clientSecret: keys.googleClientSecret,
+          refreshToken: keys.googleRefreshToken,
+          accessToken: accessToken
         }
       });
 

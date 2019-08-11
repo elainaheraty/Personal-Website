@@ -11,7 +11,9 @@ class Contact extends Component {
       subject: "",
       email: "",
       message: "",
-      tweets: []
+      tweets: [],
+      loading: false,
+      sent: false
     };
     this.fetchTweets = this.fetchTweets.bind(this);
     this.fetchTweets();
@@ -52,6 +54,8 @@ class Contact extends Component {
   }
 
   async submitContactForm() {
+    this.setState({ loading: true });
+    this.setState({ sent: false });
     const { name, email, subject, message } = this.state;
     const response = await axios.post("/api/sendmessage", {
       name,
@@ -59,6 +63,8 @@ class Contact extends Component {
       subject,
       message
     });
+    this.setState({ loading: false });
+    this.setState({ sent: true });
     console.log(response);
   }
 
@@ -153,14 +159,33 @@ class Contact extends Component {
                 >
                   Submit
                 </button>
-                <span id="image-loader">
+                <span
+                  style={{
+                    display: this.state
+                      ? this.state.loading
+                        ? ""
+                        : "none"
+                      : "none",
+                    position: "relative",
+                    left: "18px",
+                    top: "17px"
+                  }}
+                >
                   <img alt="" src="images/loader.gif" />
                 </span>
               </div>
             </fieldset>
 
-            <div id="message-warning"> Error boy</div>
-            <div id="message-success">
+            <div
+              style={{
+                display: this.state ? (this.state.sent ? "" : "none") : "none",
+                background: "#0F0F0F",
+                padding: "24px 24px",
+                marginBottom: "36px",
+                width: "65%",
+                marginLeft: "26%"
+              }}
+            >
               <i className="fa fa-check" />
               Your message was sent, thank you!
               <br />

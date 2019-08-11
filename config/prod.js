@@ -4,5 +4,8 @@ module.exports = {
   twitterConsumerKey: process.env.TWITTER_CONSUMER_KEY,
   twitterConsumerSecret: process.env.TWITTER_CONSUMER_SECRET,
   twitterAccessToken: process.env.TWITTER_ACCESS_TOKEN,
-  twitterAccessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+  twitterAccessTokenSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+  googleClientId: process.env.GOOGLE_CLIENT_ID,
+  googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  googleRefreshToken: process.env.GOOGLE_REFRESH_TOKEN
 };
