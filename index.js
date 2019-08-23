@@ -21,3 +21,4 @@ if (process.env.NODE_ENV === "production") {
 
 const port = process.env.PORT || 5000;
 app.listen(port);
+//im testing this fork thing... don't mind me im just looking for where you added your redirects for social media
